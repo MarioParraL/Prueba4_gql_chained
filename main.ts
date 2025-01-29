@@ -1,11 +1,11 @@
-import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts";
+
 import { MongoClient } from "mongodb";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { schema } from "./schema.ts";
 import { resolvers } from "./resolvers.ts";
 
-const env = await load();
+
 const MONGO_URL = env.MONGO_URL || Deno.env.get("MONGO_URL");
 if (!MONGO_URL) {
   throw new Error("Please provide a MONGO_URL");
